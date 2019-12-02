@@ -1,4 +1,4 @@
-module nsm
+module github.com/knight-shade/nsm
 
 go 1.13
 
