@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"crypto/sha1"
 	"encoding/gob"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -92,7 +93,9 @@ func (w *cachedWriter) Write(data []byte) (int, error) {
 		}
 
 		//cache responses with a status code < 300
+		fmt.Println("w.Status() := ", w.Status())
 		if w.Status() < 300 {
+			fmt.Println("inside w.Status, caching")
 			val := responseCache{
 				w.Status(),
 				w.Header(),
@@ -102,6 +105,8 @@ func (w *cachedWriter) Write(data []byte) (int, error) {
 			if err != nil {
 				// need logger
 			}
+		} else {
+			fmt.Println("outside w.Status, not caching := ", w.Status())
 		}
 	}
 	return ret, err
