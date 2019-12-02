@@ -1,7 +1,7 @@
 package persistence
 
 import (
-	"nsm/utils"
+	"github.com/knight-shade/nsm/utils"
 	"time"
 
 	"github.com/memcachier/mc"

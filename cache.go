@@ -5,11 +5,11 @@ import (
 	"crypto/sha1"
 	"encoding/gob"
 	"fmt"
+	"github.com/knight-shade/nsm/persistence"
 	"io"
 	"log"
 	"net/http"
 	"net/url"
-	"nsm/persistence"
 	"sync"
 	"time"
 
